@@ -18,6 +18,22 @@ public class MainApp {
 
         findDuplicatedFiles(files, directory);
 
+        // Get the biggest number of files that have same content
+        String maxKey = files.entrySet().stream()
+                .max(Comparator.comparingInt(entry -> entry.getValue().size()))
+                .orElseThrow().getKey();
+
+        String sampleFile = files.get(maxKey).get(0).getAbsolutePath();
+
+        String content;
+        try {
+            content = new String(Files.readAllBytes(Paths.get(sampleFile)));
+            System.out.println(content + " " + files.get(maxKey).size());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private static MessageDigest messageDigest;
