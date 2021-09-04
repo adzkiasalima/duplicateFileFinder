@@ -36,7 +36,7 @@ public class MainApp {
 
     }
 
-    private static MessageDigest messageDigest;
+    private static final MessageDigest messageDigest;
     static {
         try {
             messageDigest = MessageDigest.getInstance("SHA-256");
@@ -65,7 +65,7 @@ public class MainApp {
                     String uniqueFileHash = new BigInteger(1, messageDigest.digest(fileData)).toString(16);
                     List<File> list = lists.get(uniqueFileHash);
                     if (list == null) {
-                        list = new LinkedList<File>();
+                        list = new LinkedList<>();
                         lists.put(uniqueFileHash, list);
                     }
                     list.add(child);
