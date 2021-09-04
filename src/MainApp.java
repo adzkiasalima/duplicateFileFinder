@@ -33,7 +33,6 @@ public class MainApp {
             e.printStackTrace();
         }
 
-
     }
 
     private static final MessageDigest messageDigest;
@@ -45,7 +44,6 @@ public class MainApp {
             throw new RuntimeException();
         }
     }
-
 
     public static Map<String, List<File>> findDuplicatedFiles(Map<String, List<File>> lists, File directory) {
 
